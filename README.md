@@ -1,0 +1,2 @@
+Cross-site scripting (XSS) is an injection attack which is carried out on Web applications that accept input, but do not 
+properly separate data and executable code before the input is delivered back to a user’s browser.
