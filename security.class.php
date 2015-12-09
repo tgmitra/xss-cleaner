@@ -3,22 +3,34 @@
 
 class filter_payload {
 
-
+    /**
+     * Clean all request payload
+     * @param bool|false $init_val
+     * @return array
+     */
     public function clean_request_payload($init_val = false) {
+        # Check if payload is available or load from exiting request
         $payload_val = is_array($init_val) ? $init_val : array($_GET, $_REQUEST, $_POST);
 
+        #validate value
         if(is_array($payload_val)) {
+
+            # loop payload
             foreach($payload_val as $key=>$row) {
+
+                # If payload is array then call same method recursively or clean the value
                 if(is_array($row))
                     $payload_val[$key] = $this->clean_request_payload($row);
                 else
-                    $payload_val[$key] = $this->clean_value($row)."|";
+                    $payload_val[$key] = $this->clean_value($row);
             }
         }
 
+        # If payload from request all request variable then update all value after cleaning it back
         if(!is_array($init_val))
             list($_GET, $_REQUEST, $_POST) = $payload_val;
 
+        # Return all value after cleaning
         return $payload_val;
     }
 
