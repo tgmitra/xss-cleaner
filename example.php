@@ -1,7 +1,7 @@
 <?php
 
 # Include security class
-include 'security.class.php';
+require_once 'security.class.php';
 
 # Initiate filter_payload
 $filter_payload = new filter_payload();
