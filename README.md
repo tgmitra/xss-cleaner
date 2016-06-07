@@ -16,4 +16,4 @@ Additionally, as mentioned in example.php use `$filter_payload = new filter_payl
 `$filter_payload->clean_request_payload();` to clean all request payload.
 
 Alternatively you can pass specific request parameter also on the clean_request_payload() for example  
-$_GET = `$filter_payload->clean_request_payload($_GET);`
+`$_GET = $filter_payload->clean_request_payload($_GET);`
